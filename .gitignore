@@ -1,0 +1,9 @@
+node_modules/
+dist/
+qa/
+.DS_Store
+analysis.md
+marketing/
+mobile-seo-*.png
+scripts/build-competitor-doc.py
+scripts/build-promo-package.mjs
