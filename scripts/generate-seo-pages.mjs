@@ -346,6 +346,7 @@ function nav(lang) {
     <div class="links">
       <a href="${zh ? '/zh/features.html' : '/en/features.html'}">${zh ? '功能' : 'Features'}</a>
       <a href="${zh ? '/zh/local-image-processing.html' : '/en/local-image-processing.html'}">${zh ? '本地处理' : 'Local processing'}</a>
+      <a href="${zh ? '/zh/seo-geo-services.html' : '/en/seo-geo-services.html'}">SEO/GEO</a>
       <a href="${zh ? '/zh/seo-hub.html' : '/en/seo-hub.html'}">${zh ? '资源中心' : 'Resources'}</a>
       <a href="${zh ? '/zh/faq.html' : '/en/faq.html'}">FAQ</a>
     </div>
@@ -513,6 +514,68 @@ function renderInfoPage(page) {
 }
 
 const staticPages = [
+  {
+    path: '/en/seo-geo-services.html',
+    lang: 'en',
+    title: 'Enterprise SEO and GEO Services | QingHen AI',
+    description: 'SEO, GEO and AI search visibility services for businesses that want to be understood, cited and recommended by Google, ChatGPT, Perplexity, Gemini and AI Overviews.',
+    label: 'Enterprise SEO / GEO',
+    h1: 'SEO and GEO services for AI search visibility',
+    intro: 'QingHen AI is not only an image tool. It is also a working example of how a website can be structured for search engines, AI answers, long-tail questions, schema, sitemap and llms.txt.',
+    panelTitle: 'What we help with',
+    panel: 'We help businesses turn their websites into AI-readable, search-ready content systems that can be understood by traditional search and answer engines.',
+    sections: [
+      ['Service packages', [
+        { title: 'AI search visibility audit', text: 'Check how your brand appears across Google, ChatGPT, Perplexity, Gemini and AI Overviews, then identify missing pages, weak entities and citation gaps.' },
+        { title: 'SEO/GEO site rebuild', text: 'Improve service pages, title architecture, FAQ structure, schema, internal linking, sitemap, robots and llms.txt for clearer machine understanding.' },
+        { title: 'Bilingual content system', text: 'Plan and produce English and Chinese landing pages, comparison pages, case studies and knowledge-base articles around real buyer search intent.' },
+      ]],
+      ['Best-fit clients', [
+        { title: 'B2B service companies', text: 'Teams that need overseas customers to understand their offer, proof, pricing logic and service categories.' },
+        { title: 'Ecommerce and exporters', text: 'Sellers that need category pages, product education pages, marketplace content and AI-search-ready answers.' },
+        { title: 'Local and professional services', text: 'Clinics, agencies, studios, consultants and operators that rely on trust, questions, comparison and location intent.' },
+      ]],
+      ['Starter workflow', [
+        { title: '1. Diagnose', text: 'We review your current website, indexed pages, search snippets and AI answer visibility.' },
+        { title: '2. Rebuild structure', text: 'We create a cleaner page map, FAQ library, schema plan and internal-link system.' },
+        { title: '3. Publish and monitor', text: 'We ship pages, submit crawl signals and track how the brand is mentioned, cited and summarized over time.' },
+      ]],
+      ['Contact', [
+        { title: 'Request a GEO audit', text: 'Email hello@qinghenai.com or add WeChat artipsg with your website URL, target market and main competitors.' },
+      ]],
+    ],
+  },
+  {
+    path: '/zh/seo-geo-services.html',
+    lang: 'zh-CN',
+    title: '企业 SEO 与 GEO 服务 | 清痕 AI',
+    description: '为企业提供 SEO、GEO 和 AI 搜索可见度服务，让官网更容易被 Google、ChatGPT、Perplexity、Gemini 和 AI Overview 理解、引用和推荐。',
+    label: '企业 SEO / GEO',
+    h1: '面向 AI 搜索时代的企业 SEO 与 GEO 服务',
+    intro: '清痕 AI 不只是图片工具，也是一个真实的网站结构案例：长尾页面、FAQ、Schema、sitemap、robots、llms.txt 和 AI 可读内容都可以成为企业官网增长系统的一部分。',
+    panelTitle: '我们解决什么',
+    panel: '帮助企业把官网改造成搜索引擎和 AI 问答系统都更容易理解、引用和推荐的内容资产。',
+    sections: [
+      ['服务内容', [
+        { title: 'AI 搜索可见度诊断', text: '检查品牌在 Google、ChatGPT、Perplexity、Gemini、AI Overview 里的呈现，找出缺失页面、实体弱点和引用断点。' },
+        { title: 'SEO/GEO 官网改造', text: '优化服务页、标题结构、FAQ、Schema、内链、sitemap、robots 和 llms.txt，让机器更容易理解业务。' },
+        { title: '中英文内容增长系统', text: '围绕真实客户搜索意图，规划并产出英文和中文落地页、对比页、案例页、问题页和知识库。' },
+      ]],
+      ['适合客户', [
+        { title: 'B2B 服务企业', text: '需要让海外客户快速理解服务、案例、报价逻辑和可信度的公司。' },
+        { title: '电商和外贸企业', text: '需要类目页、产品教育页、平台内容和 AI 可引用答案的卖家与出口企业。' },
+        { title: '本地和专业服务', text: '医疗、咨询、工作室、代理服务等依赖信任、问答、比较和地区搜索意图的业务。' },
+      ]],
+      ['启动流程', [
+        { title: '1. 诊断', text: '检查当前官网、已收录页面、搜索摘要和 AI 问答可见度。' },
+        { title: '2. 重做结构', text: '建立页面地图、FAQ 库、Schema 方案和内部链接系统。' },
+        { title: '3. 发布监测', text: '上线页面、提交抓取信号，并持续观察品牌如何被提及、引用和总结。' },
+      ]],
+      ['联系咨询', [
+        { title: '申请 GEO 诊断', text: '发送官网地址、目标市场和主要竞争对手到 hello@qinghenai.com，或添加微信 artipsg。' },
+      ]],
+    ],
+  },
   {
     path: '/en/features.html',
     lang: 'en',
@@ -731,6 +794,8 @@ const manualPages = [
   '/zh/local-image-processing.html',
   '/en/local-image-processing.html',
   '/zh/xiaohongshu-ai-image-cleaner.html',
+  '/zh/seo-geo-services.html',
+  '/en/seo-geo-services.html',
   '/en/ai-image-metadata-cleaner.html',
   '/zh/faq.html',
   '/en/faq.html',

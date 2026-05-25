@@ -786,7 +786,8 @@ select {
 
 .use-case-section,
 .faq-section,
-.resource-section {
+.resource-section,
+.growth-section {
   display: grid;
   grid-template-columns: 0.72fr 1.28fr;
   gap: 34px;
@@ -848,6 +849,91 @@ select {
   background: #fff;
   text-decoration: none;
   font-weight: 720;
+}
+
+.growth-section {
+  background: #101214;
+  color: #ffffff;
+}
+
+.growth-section .green-label {
+  color: #101214;
+}
+
+.growth-section .section-copy p:not(.green-label) {
+  color: #c4cbd0;
+}
+
+.growth-section h2 {
+  color: #ffffff;
+}
+
+.growth-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.dark-link,
+.light-link {
+  min-height: 42px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 720;
+}
+
+.dark-link {
+  color: #101214;
+  background: var(--lime);
+  border: 1px solid var(--lime);
+}
+
+.light-link {
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.growth-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.growth-card {
+  min-height: 246px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.growth-icon {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  color: #101214;
+  background: var(--lime);
+  margin-bottom: 18px;
+}
+
+.growth-card h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+
+.growth-card p {
+  margin: 0;
+  color: #c4cbd0;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 .vip-section {
@@ -1076,7 +1162,12 @@ select {
 
   .use-case-section,
   .faq-section,
-  .resource-section {
+  .resource-section,
+  .growth-section {
+    grid-template-columns: 1fr;
+  }
+
+  .growth-grid {
     grid-template-columns: 1fr;
   }
 

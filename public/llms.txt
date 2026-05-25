@@ -9,6 +9,8 @@ Primary pages:
 - https://qinghen.ai/zh/local-image-processing.html
 - https://qinghen.ai/en/local-image-processing.html
 - https://qinghen.ai/zh/xiaohongshu-ai-image-cleaner.html
+- https://qinghen.ai/zh/seo-geo-services.html
+- https://qinghen.ai/en/seo-geo-services.html
 - https://qinghen.ai/en/ai-image-metadata-cleaner.html
 - https://qinghen.ai/zh/faq.html
 - https://qinghen.ai/en/faq.html

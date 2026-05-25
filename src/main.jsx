@@ -1,6 +1,9 @@
 import React, { useMemo, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import {
+  BarChart3,
+  Bot,
+  Building2,
   Check,
   ChevronDown,
   CircleAlert,
@@ -30,6 +33,7 @@ const copy = {
     navFeatures: 'Features',
     navUseCases: 'Use cases',
     navServices: 'Services',
+    navGrowth: 'SEO/GEO',
     login: 'Send samples',
     start: 'Open tool',
     eyebrow: 'AI Image Humanizer & Realism Enhancer',
@@ -78,6 +82,12 @@ const copy = {
     faqTitle: 'AI image humanizer questions',
     resourcesTitle: 'AI image realism knowledge base',
     resourcesSub: 'Guides for search engines, AI answers and creators who want practical workflows for realistic AI images.',
+    growthLabel: 'Enterprise SEO / GEO',
+    growthTitle: 'Need your business to show up in AI search?',
+    growthSub:
+      'QingHen AI is also a working case study for SEO, GEO and AI-search content architecture. We help businesses become easier for Google, ChatGPT, Perplexity, Gemini and AI Overviews to understand, cite and recommend.',
+    growthCta: 'View SEO/GEO services',
+    growthContact: 'Request a GEO audit',
     vipLabel: 'Manual review service',
     vipTitle: 'Need deeper retouching or merchant batch work?',
     vipSub:
@@ -86,8 +96,8 @@ const copy = {
     vipTrust: 'Only for images you own, created, licensed or are authorized to edit.',
     vipContact: 'Send sample images',
     contactLabel: 'Contact',
-    contactTitle: 'Send samples for manual review',
-    contactSub: 'Scan WeChat or include 1-3 sample images and your publishing channel. We will reply with whether the free local tool is enough or manual retouching is needed.',
+    contactTitle: 'Send samples or request a GEO audit',
+    contactSub: 'Scan WeChat or email us with either 1-3 sample images for manual review, or your business website for an SEO/GEO visibility audit.',
     wechatLabel: 'WeChat',
     emailLabel: 'Email',
   },
@@ -96,6 +106,7 @@ const copy = {
     navFeatures: '功能',
     navUseCases: '场景',
     navServices: '服务',
+    navGrowth: 'SEO/GEO',
     login: '发样图咨询',
     start: '打开工具',
     eyebrow: 'AI 图片真人化与真实感增强工具',
@@ -144,6 +155,12 @@ const copy = {
     faqTitle: 'AI 图片真人化常见问题',
     resourcesTitle: 'AI 图片真实感知识库',
     resourcesSub: '围绕用户真实搜索问题建立教程页面，让搜索引擎、AI 摘要和创作者理解清痕 AI 的用法。',
+    growthLabel: '企业 SEO / GEO 服务',
+    growthTitle: '想让企业出现在 AI 搜索和 Google 结果里？',
+    growthSub:
+      '清痕 AI 本身就是一个 SEO、GEO、AI Search 内容架构案例。我们可以帮助企业官网更容易被 Google、ChatGPT、Perplexity、Gemini 和 AI Overview 理解、引用和推荐。',
+    growthCta: '查看 SEO/GEO 服务',
+    growthContact: '咨询 GEO 诊断',
     vipLabel: '人工评估服务',
     vipTitle: '需要更深度的修图或商家批量处理？',
     vipSub:
@@ -152,8 +169,8 @@ const copy = {
     vipTrust: '仅处理你拥有版权、自己生成、已获授权或客户委托的图片。',
     vipContact: '发样图咨询',
     contactLabel: '联系咨询',
-    contactTitle: '发样图做人工评估',
-    contactSub: '扫码加微信，或发送 1-3 张样图并说明发布平台。我们先判断免费本地工具是否够用，再确认是否需要人工精修。',
+    contactTitle: '发样图或咨询 GEO 诊断',
+    contactSub: '扫码加微信，或发送 1-3 张样图做人工评估；如果是企业 SEO/GEO 服务，请直接发官网地址，我们先做可见度诊断。',
     wechatLabel: '微信',
     emailLabel: '邮箱',
   },
@@ -169,12 +186,37 @@ const presets = [
 ];
 
 const resourceLinks = [
+  { zh: '企业 SEO/GEO 服务', en: 'Enterprise SEO/GEO services', hrefZh: '/zh/seo-geo-services.html', hrefEn: '/en/seo-geo-services.html' },
   { zh: 'AI 图片真人化工具', en: 'AI image humanizer', hrefZh: '/zh/ai-image-humanizer.html', hrefEn: '/en/ai-image-humanizer.html' },
   { zh: '让 AI 图片变真实', en: 'Make AI photos look real', hrefZh: '/zh/make-ai-photo-look-real.html', hrefEn: '/en/make-ai-photo-look-real.html' },
   { zh: '去除 AI 感', en: 'Remove AI look from images', hrefZh: '/zh/remove-ai-look-from-image.html', hrefEn: '/en/remove-ai-look-from-image.html' },
   { zh: 'AI 头像真实化', en: 'AI portrait retouching', hrefZh: '/zh/ai-portrait-retouching.html', hrefEn: '/en/ai-portrait-retouching.html' },
   { zh: 'AI 图片元数据清理', en: 'AI image metadata guide', hrefZh: '/zh/ai-image-metadata-cleaner.html', hrefEn: '/en/c2pa-metadata-guide.html' },
   { zh: '清痕 AI 资源中心', en: 'QingHen AI resources', hrefZh: '/zh/seo-hub.html', hrefEn: '/en/seo-hub.html' },
+];
+
+const growthServices = [
+  {
+    icon: 'audit',
+    zh: 'AI 搜索可见度诊断',
+    en: 'AI search visibility audit',
+    zhText: '检查品牌在 ChatGPT、Perplexity、Gemini、Google AI Overview 和传统搜索里的呈现问题。',
+    enText: 'Check how your brand appears across ChatGPT, Perplexity, Gemini, Google AI Overviews and traditional search.',
+  },
+  {
+    icon: 'architecture',
+    zh: '官网 SEO/GEO 架构改造',
+    en: 'SEO/GEO site architecture',
+    zhText: '重做 Title、服务页、FAQ、Schema、内链、sitemap、llms.txt 和 AI 可读内容结构。',
+    enText: 'Improve titles, service pages, FAQs, schema, internal links, sitemaps, llms.txt and AI-readable content structure.',
+  },
+  {
+    icon: 'content',
+    zh: '中英文内容增长系统',
+    en: 'Bilingual content growth system',
+    zhText: '围绕企业真实客户搜索意图，持续产出中英文行业页、案例页、问题页和知识库内容。',
+    enText: 'Build English and Chinese industry pages, case studies, question-led pages and knowledge-base content around real buyer intent.',
+  },
 ];
 
 const useCases = [
@@ -432,6 +474,7 @@ function App() {
           <a href={lang === 'zh' ? '/zh/features.html' : '/en/features.html'}>{t.navProduct}</a>
           <a href={lang === 'zh' ? '/zh/local-image-processing.html' : '/en/local-image-processing.html'}>{t.navFeatures}</a>
           <a href={lang === 'zh' ? '/zh/xiaohongshu-ai-image-cleaner.html' : '/en/ai-image-metadata-cleaner.html'}>{t.navUseCases}</a>
+          <a href={lang === 'zh' ? '/zh/seo-geo-services.html' : '/en/seo-geo-services.html'}>{t.navGrowth}</a>
           <a href="#services">{t.navServices}</a>
           <a href={lang === 'zh' ? '/zh/seo-hub.html' : '/en/seo-hub.html'}>{lang === 'zh' ? '资源' : 'Resources'}</a>
         </div>
@@ -675,6 +718,33 @@ function App() {
             <a key={`${item.hrefEn}-${item.hrefZh}`} href={lang === 'zh' ? item.hrefZh : item.hrefEn}>
               {lang === 'zh' ? item.zh : item.en}
             </a>
+          ))}
+        </div>
+      </section>
+
+      <section className="growth-section" id="seo-geo">
+        <div className="section-copy">
+          <p className="green-label">{t.growthLabel}</p>
+          <h2>{t.growthTitle}</h2>
+          <p>{t.growthSub}</p>
+          <div className="growth-actions">
+            <a className="dark-link" href={lang === 'zh' ? '/zh/seo-geo-services.html' : '/en/seo-geo-services.html'}>
+              {t.growthCta}
+            </a>
+            <a className="light-link" href="#contact">{t.growthContact}</a>
+          </div>
+        </div>
+        <div className="growth-grid">
+          {growthServices.map((service) => (
+            <article className="growth-card" key={service.en}>
+              <div className="growth-icon">
+                {service.icon === 'audit' && <BarChart3 size={22} />}
+                {service.icon === 'architecture' && <Bot size={22} />}
+                {service.icon === 'content' && <Building2 size={22} />}
+              </div>
+              <h3>{lang === 'zh' ? service.zh : service.en}</h3>
+              <p>{lang === 'zh' ? service.zhText : service.enText}</p>
+            </article>
           ))}
         </div>
       </section>
